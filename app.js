@@ -14,14 +14,13 @@ export const app = express();
 //using Middleware
 app.use(express.json());
 app.use(cookieParser());
-// app.use(
-//   cors({
-//     origin: [process.env.FRONTEND_URL],
-//     methods: ["GET", "PUT", "POST", "DELETE"],
-//     credentials: true,
-//   })
-// );
-app.use(cors());
+app.use(
+  cors({
+    origin: "http://localhost:5500",
+    methods: ["GET", "PUT", "POST", "DELETE"],
+    credentials: true,
+  })
+);
 
 //using routes
 app.use("/api/v1/users", userRouter);
